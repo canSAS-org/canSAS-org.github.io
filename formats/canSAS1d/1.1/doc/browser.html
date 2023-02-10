@@ -1,0 +1,154 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Browser Compatibility Issues &mdash; canSAS1d 1.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="canSAS1d 1.1 documentation" href="index.html" />
+    <link rel="up" title="Table of Contents" href="contents.html" />
+    <link rel="next" title="Case Studies" href="case-studies.html" />
+    <link rel="prev" title="Compatibility of Geometry Definitions" href="compatibility.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="case-studies.html" title="Case Studies"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="compatibility.html" title="Compatibility of Geometry Definitions"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">canSAS1d 1.1 documentation</a> &raquo;</li>
+          <li><a href="contents.html" accesskey="U">Table of Contents</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/cswikilogo.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="compatibility.html"
+                        title="previous chapter">Compatibility of Geometry Definitions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="case-studies.html"
+                        title="next chapter">Case Studies</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/tutorial.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="tutorial">
+<span id="id1"></span><h1>Browser Compatibility Issues<a class="headerlink" href="#browser" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">One of the really nice features of the <em>cansas1d</em> format is that because it is XML
+it can be understood by any program that interprets <a href="https://en.wikipedia.org/wiki/XSLT">XSLT</a>, and this includes web browsers. It is no longer necessary to edit a file simply to see its contents!</p>
+<p> However, some web browsers can behave differently. Here is what we know:</p>
+<h3>Internet Explorer</h3>
+<ul>
+<li>IS compatible with <em>cansas1d</em>.</li>
+</ul>
+<h3>Firefox</h3>
+<ul>
+<li>IS compatible with <em>cansas1d</em>.</li>
+</ul>
+<h3>Chrome</h3>
+<ul>
+<li>IS compatible with <em>cansas1d</em> but only under specific conditions.</li>
+<p>
+<li>In developing Chrome, <a href="http://blog.chromium.org/2008/12/security-in-depth-local-web-pages.html">Google decided to adopt a security model known as 'same-origin'</a>. This actively prevents the browser from opening XML/XSL files over http:// connections, including the <em>cansas1d</em> stylesheet <em>cansas1d.xsl</em>.</li>
+<li>Fortunately, there is a workaround: run Chrome with the switch '--allow-file-access-from-files'.</li>
+<p>
+<li>To do this in Windows:</li>
+<ul>
+<li>1. Unpin any instance of Chrome from the taskbar and/or delete any existing shortcuts to Chrome.</li>
+<li>2. Click the Start button and locate Google Chrome under All Programs.</li>
+<li>3. Right-click on Google Chrome and select Properties.</li>
+<li>4. Edit the Target box to append the switch to the text string; eg: "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --allow-file-access-from-files</li>
+<li>5. Click Apply and Ok (NB: you may need Administrator permission to do this).</li>
+<li>6. Right-click on Google Chrome again and re-pin it to the taskbar or create a new shortcut.</li>
+</ul>
+</ul>
+<p>NB: You can use the shortcut Ctrl-O to bring up an Open File dialog in any of these browsers.
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="case-studies.html" title="Case Studies"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="compatibility.html" title="Compatibility of Geometry Definitions"
+             >previous</a> |</li>
+        <li><a href="index.html">canSAS1d 1.1 documentation</a> &raquo;</li>
+          <li><a href="contents.html" >Table of Contents</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, canSAS.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

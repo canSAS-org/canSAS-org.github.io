@@ -1,0 +1,594 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Java JAXB &mdash; canSAS1d 1.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="canSAS1d 1.1 documentation" href="index.html" />
+    <link rel="up" title="Language Bindings and Software Support" href="bindings.html" />
+    <link rel="next" title="PHP" href="binding-php.html" />
+    <link rel="prev" title="IgorPro" href="binding-igorpro.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="binding-php.html" title="PHP"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="binding-igorpro.html" title="IgorPro"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">canSAS1d 1.1 documentation</a> &raquo;</li>
+          <li><a href="contents.html" >Table of Contents</a> &raquo;</li>
+          <li><a href="bindings.html" accesskey="U">Language Bindings and Software Support</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/cswikilogo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Java JAXB</a><ul>
+<li><a class="reference internal" href="#example-cansas-reader-java-example-usage-in-java"><em>Example_canSAS_Reader.java</em>: example usage in JAVA</a></li>
+<li><a class="reference internal" href="#example-how-to-retrieve">example: how to retrieve <span class="math">\(I(Q)\)</span></a><ul>
+<li><a class="reference internal" href="#getsasdata-java"><em>GetSASdata.java</em></a></li>
+<li><a class="reference internal" href="#java-test-xml"><em>java-test.xml</em></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#jaxb-questions-and-answers">JAXB: Questions and Answers</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="binding-igorpro.html"
+                        title="previous chapter">IgorPro</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="binding-php.html"
+                        title="next chapter">PHP</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/binding-java-jaxb.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="java-jaxb">
+<span id="java-jaxb-binding"></span><span id="index-0"></span><h1>Java JAXB<a class="headerlink" href="#java-jaxb" title="Permalink to this headline">¶</a></h1>
+<p>A Java binding for the cansas1d/1.1 standard has been auto-created using the JAXB tools
+from Sun (see below for more on JAXB) using the <em>cansas1d.xsd</em> <span class="target" id="index-1"></span>XML Schema.
+Resources (JAR files and documentation) for the Java binding may be found in
+the canSAS subversion repository: <a class="reference external" href="http://www.cansas.org/svn/1dwg/tags/v1.0/java">http://www.cansas.org/svn/1dwg/tags/v1.0/java</a></p>
+<dl class="docutils">
+<dt>Subversion repository</dt>
+<dd><p class="first"><a class="reference external" href="http://www.cansas.org/svn/1dwg/tags/v1.0/java">http://www.cansas.org/svn/1dwg/tags/v1.0/java</a></p>
+<p class="last">canSAS subversion repository tagged release directory for the Java binding.
+Use resources from this directory in your development projects.</p>
+</dd>
+<dt><em>cansas1d-1.0.jar</em></dt>
+<dd><p class="first"><a class="reference external" href="http://www.cansas.org/svn/1dwg/tags/v1.0/java/cansas1d-1.0.jar">http://www.cansas.org/svn/1dwg/tags/v1.0/java/cansas1d-1.0.jar</a></p>
+<p class="last">JAR file to add to your CLASSPATH in order to use this binding.</p>
+</dd>
+<dt><em>cansas1d-1.0-javadoc.jar</em></dt>
+<dd><p class="first"><a class="reference external" href="http://www.cansas.org/svn/1dwg/tags/v1.0/java/cansas1d-1.0-javadoc.jar">http://www.cansas.org/svn/1dwg/tags/v1.0/java/cansas1d-1.0-javadoc.jar</a></p>
+<p class="last">Use this JAR file if you want to add the
+javadoc documentation as tooltips to your editor, such as eclipse.
+(auto-generated from the project source code using maven2)
+Note that this file is compatible with any ZIP program and can be unzipped
+to provide a directory with all the documentation as a set of HTML pages.
+Start with the <em>index.html</em> page.</p>
+</dd>
+<dt><em>cansas1d-1.0-sources.jar</em></dt>
+<dd><p class="first"><a class="reference external" href="http://www.cansas.org/svn/1dwg/tags/v1.0/java/cansas1d-1.0-sources.jar">http://www.cansas.org/svn/1dwg/tags/v1.0/java/cansas1d-1.0-sources.jar</a></p>
+<p class="last">JAR file of the source code.
+(auto-generated from the project source code using maven2)
+Note that this is <em>just</em>
+the source code tree and not the full project development tree
+for the Java (JAXB) API.</p>
+</dd>
+<dt><em>cansas1d-1.0.pdf</em></dt>
+<dd><p class="first"><a class="reference external" href="http://www.cansas.org/svn/1dwg/tags/v1.0/java/cansas1d-1.0.pdf">http://www.cansas.org/svn/1dwg/tags/v1.0/java/cansas1d-1.0.pdf</a></p>
+<p class="last">PDF file of the javadoc source code documentation.
+(auto-generated from the project source code using pdfdoclet)</p>
+</dd>
+<dt>source code (for developers)</dt>
+<dd><p class="first"><a class="reference external" href="http://www.cansas.org/trac/browser/1dwg/trunk/java/maven/eclipse">http://www.cansas.org/trac/browser/1dwg/trunk/java/maven/eclipse</a></p>
+<p class="last">canSAS Development project subversion repository for the Java binding.
+Only use this if you want to participate as a code developer of this binding.</p>
+</dd>
+</dl>
+<div class="section" id="example-cansas-reader-java-example-usage-in-java">
+<h2><em>Example_canSAS_Reader.java</em>: example usage in JAVA<a class="headerlink" href="#example-cansas-reader-java-example-usage-in-java" title="Permalink to this headline">¶</a></h2>
+<p>An example (<em>Example_canSAS_Reader.java</em>) has been constructed
+to show how to read a cansas1d/1.1 XML file using the Java API.</p>
+<p><a class="reference external" href="http://www.cansas.org/trac/browser/1dwg/trunk/java/maven/eclipse/src/main/java/org/scatteringsw/reader/Example_canSAS_Reader.java">http://www.cansas.org/trac/browser/1dwg/trunk/java/maven/eclipse/src/main/java/org/scatteringsw/reader/Example_canSAS_Reader.java</a></p>
+<p>In short, these are the important two lines:</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="n">CanSas1dType</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CanSas1dType</span><span class="o">();</span>
+</pre></div>
+</div>
+<p>and</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="n">SASrootType</span> <span class="n">sasRoot</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">open</span><span class="o">(</span><span class="n">xmlFile</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>where <em>String xmlFile;</em> is the name of the XML file to be read.
+You will also need these imports:</p>
+<div class="highlight-java"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">javax.xml.bind.JAXBException</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">net.smallangles.cansas1d.CanSas1dType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.smallangles.cansas1d.SASdataType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.smallangles.cansas1d.SASentryType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.smallangles.cansas1d.SASrootType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.smallangles.cansas1d.SASentryType.Run</span><span class="o">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Also, since <em>CanSas1dType.open(xmlFile)</em> can throw a
+<em>JAXBException</em>, you should use a <em>try{} catch {}</em>
+clause. See the source code for the example.</p>
+<p id="index-2">Here is a Java class that shows how to use the JAXB binding.
+Use this with any of the test data supplied with the cansas-1d-standard
+directory (above). By default, it shows the two samples in the
+<em>1998spheres.xml</em> example file.
+(<a class="reference external" href="http://www.cansas.org/trac/browser/1dwg/trunk/1998spheres.xml">http://www.cansas.org/trac/browser/1dwg/trunk/1998spheres.xml</a>)</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The reader will have to get the directory paths
+right until this documentation improves.</p>
+</div>
+<div class="highlight-java"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">package</span> <span class="n">org</span><span class="o">.</span><span class="na">scatteringsw</span><span class="o">.</span><span class="na">reader</span><span class="o">;</span>
+
+<span class="c1">//########### SVN repository information ###################</span>
+<span class="c1">//# $Date: 2012-11-01 17:03:20 -0500 (Thu, 01 Nov 2012) $</span>
+<span class="c1">//# $Author: prjemian $</span>
+<span class="c1">//# $Revision: 263 $</span>
+<span class="c1">//# $URL: http://www.cansas.org/svn/1dwg/trunk/doc/source/examples/Example_canSAS_Reader.java $</span>
+<span class="c1">//# $Id: Example_canSAS_Reader.java 263 2012-11-01 22:03:20Z prjemian $</span>
+<span class="c1">//########### SVN repository information ###################</span>
+
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.xml.bind.JAXBException</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">net.smallangles.cansas1d.CanSas1dType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.smallangles.cansas1d.SASdataType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.smallangles.cansas1d.SASentryType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.smallangles.cansas1d.SASrootType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.smallangles.cansas1d.SASentryType.Run</span><span class="o">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Demonstrate how to use the Java binding for the </span>
+<span class="cm"> * cansas1d/1.0 standard XML format for reduced </span>
+<span class="cm"> * small-angle scattering data.</span>
+<span class="cm"> * </span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Example_canSAS_Reader</span> <span class="o">{</span>
+
+	<span class="cm">/**</span>
+<span class="cm">	 * @param args</span>
+<span class="cm">	 */</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">CanSas1dType</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CanSas1dType</span><span class="o">();</span>
+
+		<span class="k">try</span> <span class="o">{</span>
+			<span class="c1">// open the XML file and load contents into a Java data structure</span>
+			<span class="n">SASrootType</span> <span class="n">sasRoot</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">open</span><span class="o">(</span><span class="s">&quot;java-test.xml&quot;</span><span class="o">);</span>
+
+			<span class="c1">// canSAS XML file is now loaded in memory</span>
+			<span class="kt">int</span> <span class="n">numEntries</span> <span class="o">=</span> <span class="n">sasRoot</span><span class="o">.</span><span class="na">getSASentry</span><span class="o">().</span><span class="na">size</span><span class="o">();</span>
+			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;SASentry elements: &quot;</span> <span class="o">+</span> <span class="n">numEntries</span><span class="o">);</span>
+
+			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">numEntries</span><span class="o">;</span> <span class="n">i</span><span class="o">++</span> <span class="o">)</span> <span class="o">{</span>
+				<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;SASentry&quot;</span><span class="o">);</span>
+
+				<span class="n">SASentryType</span> <span class="n">sasEntry</span> <span class="o">=</span> <span class="n">sasRoot</span><span class="o">.</span><span class="na">getSASentry</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+				<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;Title:\t%s\n&quot;</span><span class="o">,</span> <span class="n">sasEntry</span><span class="o">.</span><span class="na">getTitle</span><span class="o">());</span>
+
+				<span class="n">List</span><span class="o">&lt;</span><span class="n">SASentryType</span><span class="o">.</span><span class="na">Run</span><span class="o">&gt;</span> <span class="n">runs</span> <span class="o">=</span> <span class="n">sasEntry</span><span class="o">.</span><span class="na">getRun</span><span class="o">();</span>
+				<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;#Runs:\t%d\n&quot;</span><span class="o">,</span> <span class="n">runs</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+
+				<span class="k">for</span><span class="o">(</span> <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">runs</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">j</span><span class="o">++</span> <span class="o">)</span> <span class="o">{</span>
+					<span class="n">Run</span> <span class="n">run</span> <span class="o">=</span> <span class="o">(</span><span class="n">Run</span><span class="o">)</span> <span class="n">runs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">j</span><span class="o">);</span>
+					<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;Run@name:\t%s\n&quot;</span><span class="o">,</span> <span class="n">run</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+					<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;Run:\t%s\n&quot;</span><span class="o">,</span> <span class="n">run</span><span class="o">.</span><span class="na">getValue</span><span class="o">());</span>
+				<span class="o">}</span>
+
+				<span class="n">List</span><span class="o">&lt;</span><span class="n">SASdataType</span><span class="o">&gt;</span> <span class="n">datasets</span> <span class="o">=</span> <span class="n">sasEntry</span><span class="o">.</span><span class="na">getSASdata</span><span class="o">();</span>
+				<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;#SASdata:\t%d\n&quot;</span><span class="o">,</span> <span class="n">sasEntry</span><span class="o">.</span><span class="na">getSASdata</span><span class="o">().</span><span class="na">size</span><span class="o">());</span>
+
+				<span class="k">for</span><span class="o">(</span> <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">runs</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">j</span><span class="o">++</span> <span class="o">)</span> <span class="o">{</span>
+					<span class="n">SASdataType</span> <span class="n">sasData</span> <span class="o">=</span> <span class="o">(</span><span class="n">SASdataType</span><span class="o">)</span> <span class="n">datasets</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">j</span><span class="o">);</span>
+					<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;SASdata@name:\t%s\n&quot;</span><span class="o">,</span> <span class="n">sasData</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+					<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;#points:\t%d\n&quot;</span><span class="o">,</span> <span class="n">sasData</span><span class="o">.</span><span class="na">getIdata</span><span class="o">().</span><span class="na">size</span><span class="o">());</span>
+				<span class="o">}</span>
+				<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+			<span class="o">}</span>
+
+			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;the end.&quot;</span><span class="o">);</span>
+
+		<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">JAXBException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;Could not open (unmarshall) XML file: %s\n&quot;</span><span class="o">,</span> <span class="n">xmlFile</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="example-how-to-retrieve">
+<span id="index-3"></span><h2>example: how to retrieve <span class="math">\(I(Q)\)</span><a class="headerlink" href="#example-how-to-retrieve" title="Permalink to this headline">¶</a></h2>
+<p>This is a slightly longer example.
+Look near line 75 for this code:</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="n">Qsas</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">sdt</span><span class="o">.</span><span class="na">getIdata</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">getQ</span><span class="o">().</span><span class="na">getValue</span><span class="o">();</span>
+</pre></div>
+</div>
+<p>to see the operations that unwind the data into usable <em>double[]</em>
+vectors. Pretty straightforward although there is lots of
+interesting, yet unnecessary, diagnostic output.  Here is a table
+that describes the items in the line just shown:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">java item</th>
+<th class="head">description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><em>sdt</em></td>
+<td><em>SASdataType</em> object</td>
+</tr>
+<tr class="row-odd"><td><em>getIdata()</em></td>
+<td>amongst the <em>/SASdata/Idata</em> tuples ...</td>
+</tr>
+<tr class="row-even"><td><em>get(i)</em></td>
+<td>... pick the <em>Idata</em> tuple from row <em>i</em>.</td>
+</tr>
+<tr class="row-odd"><td><em>getQ()</em></td>
+<td>Just the <em>/SASdata/Idata/Q</em></td>
+</tr>
+<tr class="row-even"><td><em>getValue()</em></td>
+<td>and specifically the value, not the unit</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="getsasdata-java">
+<span id="index-4"></span><h3><em>GetSASdata.java</em><a class="headerlink" href="#getsasdata-java" title="Permalink to this headline">¶</a></h3>
+<p>Since the source code is rather lengthy, download it from:
+<a class="reference external" href="http://www.cansas.org/svn/1dwg/trunk/doc/src/GetSASdata.java">http://www.cansas.org/svn/1dwg/trunk/doc/src/GetSASdata.java</a></p>
+</div>
+<div class="section" id="java-test-xml">
+<span id="index-5"></span><span id="id1"></span><h3><em>java-test.xml</em><a class="headerlink" href="#java-test-xml" title="Permalink to this headline">¶</a></h3>
+<p><em>java-test.xml</em> is an example cansas1d/1.1 XML data file
+(derived from the standard test file for the <em>lake</em>
+desmearing code).</p>
+<div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61</pre></div></td><td class="code"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="cp">&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;example.xsl&quot; ?&gt;</span>
+<span class="c">&lt;!-- </span>
+<span class="c">    ########### SVN repository information ###################</span>
+<span class="c">    # $Date: 2012-11-17 18:03:04 -0600 (Sat, 17 Nov 2012) $</span>
+<span class="c">    # $Author: prjemian $</span>
+<span class="c">    # $Revision: 273 $</span>
+<span class="c">    # $HeadURL: http://www.cansas.org/svn/1dwg/trunk/doc/source/examples/java-test.xml $</span>
+<span class="c">    # $Id: java-test.xml 273 2012-11-18 00:03:04Z prjemian $</span>
+<span class="c">    ########### SVN repository information ###################</span>
+<span class="c">--&gt;</span>
+<span class="nt">&lt;SASroot</span> <span class="na">version=</span><span class="s">&quot;1.1&quot;</span>
+	<span class="na">xmlns=</span><span class="s">&quot;urn:cansas1d:1.1&quot;</span>
+	<span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+	<span class="na">xsi:schemaLocation=</span><span class="s">&quot;urn:cansas1d:1.1 </span>
+<span class="s">	    http://www.cansas.org/formats/1.1/cansas1d.xsd&quot;</span>
+    <span class="nt">&gt;</span>
+    <span class="nt">&lt;SASentry&gt;</span>
+        <span class="nt">&lt;Title&gt;</span>(severely abbreviated version of the) standard test dataset for Lake desmearing routine<span class="nt">&lt;/Title&gt;</span>
+        <span class="nt">&lt;Run&gt;</span>Run<span class="nt">&lt;/Run&gt;</span>
+        <span class="nt">&lt;SASdata</span> <span class="na">name=</span><span class="s">&quot;slit-smeared&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;Idata&gt;&lt;Q</span> <span class="na">unit=</span><span class="s">&quot;1/A&quot;</span><span class="nt">&gt;</span>0.000371484<span class="nt">&lt;/Q&gt;&lt;I</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>211554<span class="nt">&lt;/I&gt;&lt;Idev</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>1874.86<span class="nt">&lt;/Idev&gt;&lt;/Idata&gt;</span>
+            <span class="nt">&lt;Idata&gt;&lt;Q</span> <span class="na">unit=</span><span class="s">&quot;1/A&quot;</span><span class="nt">&gt;</span>0.000510348<span class="nt">&lt;/Q&gt;&lt;I</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>172441<span class="nt">&lt;/I&gt;&lt;Idev</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>505.368<span class="nt">&lt;/Idev&gt;&lt;/Idata&gt;</span>
+            <span class="nt">&lt;Idata&gt;&lt;Q</span> <span class="na">unit=</span><span class="s">&quot;1/A&quot;</span><span class="nt">&gt;</span>0.0006516<span class="nt">&lt;/Q&gt;&lt;I</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>139041<span class="nt">&lt;/I&gt;&lt;Idev</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>373.826<span class="nt">&lt;/Idev&gt;&lt;/Idata&gt;</span>
+            <span class="nt">&lt;Idata&gt;&lt;Q</span> <span class="na">unit=</span><span class="s">&quot;1/A&quot;</span><span class="nt">&gt;</span>0.000798956<span class="nt">&lt;/Q&gt;&lt;I</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>110665<span class="nt">&lt;/I&gt;&lt;Idev</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>299.932<span class="nt">&lt;/Idev&gt;&lt;/Idata&gt;</span>
+            <span class="nt">&lt;Idata&gt;&lt;Q</span> <span class="na">unit=</span><span class="s">&quot;1/A&quot;</span><span class="nt">&gt;</span>0.000931629<span class="nt">&lt;/Q&gt;&lt;I</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>91165.3<span class="nt">&lt;/I&gt;&lt;Idev</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>255.102<span class="nt">&lt;/Idev&gt;&lt;/Idata&gt;</span>
+            <span class="nt">&lt;Idata&gt;&lt;Q</span> <span class="na">unit=</span><span class="s">&quot;1/A&quot;</span><span class="nt">&gt;</span>0.00107907<span class="nt">&lt;/Q&gt;&lt;I</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>73855.7<span class="nt">&lt;/I&gt;&lt;Idev</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>218.547<span class="nt">&lt;/Idev&gt;&lt;/Idata&gt;</span>
+            <span class="nt">&lt;Idata&gt;&lt;Q</span> <span class="na">unit=</span><span class="s">&quot;1/A&quot;</span><span class="nt">&gt;</span>0.00121794<span class="nt">&lt;/Q&gt;&lt;I</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>60799.2<span class="nt">&lt;/I&gt;&lt;Idev</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>191.38<span class="nt">&lt;/Idev&gt;&lt;/Idata&gt;</span>
+            <span class="nt">&lt;Idata&gt;&lt;Q</span> <span class="na">unit=</span><span class="s">&quot;1/A&quot;</span><span class="nt">&gt;</span>0.00168963<span class="nt">&lt;/Q&gt;&lt;I</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>33573.8<span class="nt">&lt;/I&gt;&lt;Idev</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>130.321<span class="nt">&lt;/Idev&gt;&lt;/Idata&gt;</span>
+            <span class="nt">&lt;Idata&gt;&lt;Q</span> <span class="na">unit=</span><span class="s">&quot;1/A&quot;</span><span class="nt">&gt;</span>0.00227932<span class="nt">&lt;/Q&gt;&lt;I</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>17602<span class="nt">&lt;/I&gt;&lt;Idev</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>82.5591<span class="nt">&lt;/Idev&gt;&lt;/Idata&gt;</span>
+            <span class="nt">&lt;Idata&gt;&lt;Q</span> <span class="na">unit=</span><span class="s">&quot;1/A&quot;</span><span class="nt">&gt;</span>0.00325199<span class="nt">&lt;/Q&gt;&lt;I</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>7394.04<span class="nt">&lt;/I&gt;&lt;Idev</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>50.0284<span class="nt">&lt;/Idev&gt;&lt;/Idata&gt;</span>
+            <span class="nt">&lt;Idata&gt;&lt;Q</span> <span class="na">unit=</span><span class="s">&quot;1/A&quot;</span><span class="nt">&gt;</span>0.00608234<span class="nt">&lt;/Q&gt;&lt;I</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>1305.37<span class="nt">&lt;/I&gt;&lt;Idev</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>3.52884<span class="nt">&lt;/Idev&gt;&lt;/Idata&gt;</span>
+            <span class="nt">&lt;Idata&gt;&lt;Q</span> <span class="na">unit=</span><span class="s">&quot;1/A&quot;</span><span class="nt">&gt;</span>0.00891261<span class="nt">&lt;/Q&gt;&lt;I</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>464.949<span class="nt">&lt;/I&gt;&lt;Idev</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>2.1601<span class="nt">&lt;/Idev&gt;&lt;/Idata&gt;</span>
+            <span class="nt">&lt;Idata&gt;&lt;Q</span> <span class="na">unit=</span><span class="s">&quot;1/A&quot;</span><span class="nt">&gt;</span>0.0113893<span class="nt">&lt;/Q&gt;&lt;I</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>241.462<span class="nt">&lt;/I&gt;&lt;Idev</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>1.7191<span class="nt">&lt;/Idev&gt;&lt;/Idata&gt;</span>
+            <span class="nt">&lt;Idata&gt;&lt;Q</span> <span class="na">unit=</span><span class="s">&quot;1/A&quot;</span><span class="nt">&gt;</span>0.0151631<span class="nt">&lt;/Q&gt;&lt;I</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>126.664<span class="nt">&lt;/I&gt;&lt;Idev</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>1.46166<span class="nt">&lt;/Idev&gt;&lt;/Idata&gt;</span>
+            <span class="nt">&lt;Idata&gt;&lt;Q</span> <span class="na">unit=</span><span class="s">&quot;1/A&quot;</span><span class="nt">&gt;</span>0.0264845<span class="nt">&lt;/Q&gt;&lt;I</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>53.7715<span class="nt">&lt;/I&gt;&lt;Idev</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>1.27858<span class="nt">&lt;/Idev&gt;&lt;/Idata&gt;</span>
+            <span class="nt">&lt;Idata&gt;&lt;Q</span> <span class="na">unit=</span><span class="s">&quot;1/A&quot;</span><span class="nt">&gt;</span>0.0378057<span class="nt">&lt;/Q&gt;&lt;I</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>43.2662<span class="nt">&lt;/I&gt;&lt;Idev</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>1.25507<span class="nt">&lt;/Idev&gt;&lt;/Idata&gt;</span>
+            <span class="nt">&lt;Idata&gt;&lt;Q</span> <span class="na">unit=</span><span class="s">&quot;1/A&quot;</span><span class="nt">&gt;</span>0.0472402<span class="nt">&lt;/Q&gt;&lt;I</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>39.9715<span class="nt">&lt;/I&gt;&lt;Idev</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>1.25581<span class="nt">&lt;/Idev&gt;&lt;/Idata&gt;</span>
+            <span class="nt">&lt;Idata&gt;&lt;Q</span> <span class="na">unit=</span><span class="s">&quot;1/A&quot;</span><span class="nt">&gt;</span>0.0566745<span class="nt">&lt;/Q&gt;&lt;I</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>38.9685<span class="nt">&lt;/I&gt;&lt;Idev</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>1.25924<span class="nt">&lt;/Idev&gt;&lt;/Idata&gt;</span>
+            <span class="nt">&lt;Idata&gt;&lt;Q</span> <span class="na">unit=</span><span class="s">&quot;1/A&quot;</span><span class="nt">&gt;</span>0.0996003<span class="nt">&lt;/Q&gt;&lt;I</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>38.8772<span class="nt">&lt;/I&gt;&lt;Idev</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>1.27929<span class="nt">&lt;/Idev&gt;&lt;/Idata&gt;</span>
+            <span class="nt">&lt;Idata&gt;&lt;Q</span> <span class="na">unit=</span><span class="s">&quot;1/A&quot;</span><span class="nt">&gt;</span>0.144883<span class="nt">&lt;/Q&gt;&lt;I</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>37.5137<span class="nt">&lt;/I&gt;&lt;Idev</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>1.30765<span class="nt">&lt;/Idev&gt;&lt;/Idata&gt;</span>
+            <span class="nt">&lt;Idata&gt;&lt;Q</span> <span class="na">unit=</span><span class="s">&quot;1/A&quot;</span><span class="nt">&gt;</span>0.190162<span class="nt">&lt;/Q&gt;&lt;I</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>39.1407<span class="nt">&lt;/I&gt;&lt;Idev</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>1.33442<span class="nt">&lt;/Idev&gt;&lt;/Idata&gt;</span>
+            <span class="nt">&lt;Idata&gt;&lt;Q</span> <span class="na">unit=</span><span class="s">&quot;1/A&quot;</span><span class="nt">&gt;</span>0.224119<span class="nt">&lt;/Q&gt;&lt;I</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>38.589<span class="nt">&lt;/I&gt;&lt;Idev</span> <span class="na">unit=</span><span class="s">&quot;1/cm&quot;</span><span class="nt">&gt;</span>1.35581<span class="nt">&lt;/Idev&gt;&lt;/Idata&gt;</span>
+        <span class="nt">&lt;/SASdata&gt;</span>
+        <span class="nt">&lt;SASsample&gt;</span>
+            <span class="nt">&lt;ID&gt;</span>ID<span class="nt">&lt;/ID&gt;</span>
+        <span class="nt">&lt;/SASsample&gt;</span>
+        <span class="nt">&lt;SASinstrument&gt;</span>
+            <span class="nt">&lt;name&gt;</span>calculated<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;SASsource&gt;</span>
+                <span class="nt">&lt;radiation&gt;</span>model<span class="nt">&lt;/radiation&gt;</span>
+            <span class="nt">&lt;/SASsource&gt;</span>
+            <span class="nt">&lt;SAScollimation/&gt;</span>
+            <span class="nt">&lt;SASdetector&gt;</span>
+                <span class="nt">&lt;name&gt;</span>calculated<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;slit_length</span> <span class="na">unit=</span><span class="s">&quot;1/A&quot;</span><span class="nt">&gt;</span>0.08<span class="nt">&lt;/slit_length&gt;</span>
+            <span class="nt">&lt;/SASdetector&gt;</span>
+        <span class="nt">&lt;/SASinstrument&gt;</span>
+        <span class="nt">&lt;SASnote/&gt;</span>
+    <span class="nt">&lt;/SASentry&gt;</span>
+<span class="nt">&lt;/SASroot&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="jaxb-questions-and-answers">
+<span id="index-6"></span><h2>JAXB: Questions and Answers<a class="headerlink" href="#jaxb-questions-and-answers" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Q:</th><td class="field-body"><p class="first">What is <em>JAXB</em>?</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">A:</th><td class="field-body"><p class="first">Java Architecture for XML Binding
+(<a class="reference external" href="http://java.sun.com/developer/technicalArticles/WebServices/jaxb">http://java.sun.com/developer/technicalArticles/WebServices/jaxb</a>)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Q:</th><td class="field-body"><p class="first">Wow! Is it available for other languages?</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">A:</th><td class="field-body"><p class="first">Ask Google. <em>JAXB</em> is for Java.
+(<a class="reference external" href="http://java.sun.com/developer/technicalArticles/WebServices/jaxb">http://java.sun.com/developer/technicalArticles/WebServices/jaxb</a>)</p>
+<p class="last">For example: <a class="reference external" href="http://www.devx.com/ibm/Article/20261">http://www.devx.com/ibm/Article/20261</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils field-list" frame="void" id="index-7" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Q:</th><td class="field-body">How do I pull out the <span class="math">\(I(Q)\)</span> data?</td>
+</tr>
+<tr class="field-even field"><th class="field-name">A:</th><td class="field-body">See Java code fragment above that gets data for desmearing.  (<a class="reference internal" href="#java-test-xml"><em>java-test.xml</em></a>)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Q:</th><td class="field-body">Has JAXB been useful?</td>
+</tr>
+<tr class="field-even field"><th class="field-name">A:</th><td class="field-body"><strong>Very useful.</strong>
+Since an XML Schema was defined, JAXB was
+very useful to create a Java binding
+automatically.  Then, <em>javadoc</em> was able to
+auto-generate the basic documentation as HTML and
+<em>pdfdoclet</em> was able to auto-generate the
+documentation in a PDF file.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="binding-php.html" title="PHP"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="binding-igorpro.html" title="IgorPro"
+             >previous</a> |</li>
+        <li><a href="index.html">canSAS1d 1.1 documentation</a> &raquo;</li>
+          <li><a href="contents.html" >Table of Contents</a> &raquo;</li>
+          <li><a href="bindings.html" >Language Bindings and Software Support</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, canSAS.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

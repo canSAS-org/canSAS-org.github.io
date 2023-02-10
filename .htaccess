@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^formats/canSAS2012/.*$ http://cansas-org.github.io/canSAS2012/ [L,R=301]

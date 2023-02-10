@@ -1,0 +1,54 @@
+8
+
+dir
+87
+http://svn.smallangles.net/svn/canSAS/1dwg/trunk/php/xmlWriter/www
+http://svn.smallangles.net/svn/canSAS
+
+
+
+2009-09-02T17:22:43.466975Z
+81
+prjemian
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+57561bab-14d3-4231-89cc-d4d07b544de1
+
+style.xsl
+file
+
+
+
+
+2009-09-03T01:24:55.000000Z
+966d351960db1dd4f765307bc7d13627
+2009-08-28T20:03:44.772297Z
+74
+prjemian
+has-props
+
+surveillance.xml
+file
+
+
+
+
+2009-09-03T18:38:36.000000Z
+a493307c86ee7ca130e006194ea9f47d
+2009-09-02T17:22:43.466975Z
+81
+prjemian
+has-props
+

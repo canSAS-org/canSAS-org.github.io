@@ -1,0 +1,382 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Python &mdash; canSAS1d 1.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="canSAS1d 1.1 documentation" href="index.html" />
+    <link rel="up" title="Language Bindings and Software Support" href="bindings.html" />
+    <link rel="next" title="The Intensity Problem" href="intensity-problem.html" />
+    <link rel="prev" title="PHP" href="binding-php.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="intensity-problem.html" title="The Intensity Problem"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="binding-php.html" title="PHP"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">canSAS1d 1.1 documentation</a> &raquo;</li>
+          <li><a href="contents.html" >Table of Contents</a> &raquo;</li>
+          <li><a href="bindings.html" accesskey="U">Language Bindings and Software Support</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/cswikilogo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Python</a><ul>
+<li><a class="reference internal" href="#gnosis-xml-objectify"><em>gnosis.xml.objectify</em></a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#quick-test-in-python">Quick test in Python</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#generateds-py"><em>generateDS.py</em></a></li>
+<li><a class="reference internal" href="#other-possibilities">Other possibilities</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="binding-php.html"
+                        title="previous chapter">PHP</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="intensity-problem.html"
+                        title="next chapter">The Intensity Problem</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/binding-python.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="python">
+<span id="python-binding"></span><span id="index-0"></span><h1>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
+<p>Specific support for the cansas1d/1.1 data standard in Python (<a class="reference external" href="http://danse.us/trac/sans">http://danse.us/trac/sans</a>)
+is being developed by NIST/NCNR (<a class="reference external" href="http://www.ncnr.nist.gov">http://www.ncnr.nist.gov</a>)
+as part of their contribution to the
+DANSE project (<a class="reference external" href="http://wiki.cacr.caltech.edu/danse">http://wiki.cacr.caltech.edu/danse</a>).</p>
+<p>Here are some extremeley terse instructions (circa 2008) to get you started on a UNIX or Linux system:</p>
+<div class="highlight-guess"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">svn</span> <span class="n">co</span> <span class="n">http:</span><span class="sr">//</span><span class="n">danse</span><span class="o">.</span><span class="n">us</span><span class="sr">/trac/s</span><span class="n">ans</span><span class="sr">/browser/</span><span class="n">trunk</span><span class="o">/</span><span class="n">DataLoader</span> <span class="n">DataLoader</span>
+<span class="n">cd</span> <span class="n">DataLoader</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+</pre></div>
+</td></tr></table></div>
+<p>The release notes (<a class="reference external" href="http://danse.us/trac/sans/browser/trunk/DataLoader/release_notes.txt">http://danse.us/trac/sans/browser/trunk/DataLoader/release_notes.txt</a>)
+have a list of the dependencies.</p>
+<p class="rubric">Comments</p>
+<p>Other constructive suggestions (that predate the NIST/NCNR support) have been gathered on this page.</p>
+<div class="section" id="gnosis-xml-objectify">
+<h2><em>gnosis.xml.objectify</em><a class="headerlink" href="#gnosis-xml-objectify" title="Permalink to this headline">¶</a></h2>
+<p>The <em>GnosisUtils</em> (<a class="reference external" href="http://freecode.com/projects/gnosisxml/">http://freecode.com/projects/gnosisxml/</a>)
+offer a method to read any XML file into Python data structures. This utility
+does not validate the XML against a specific XML Schema which can be both good
+(flexible, especially when XML Foreign Namespace elements are used) and not
+so good (XML content not guaranteed to be valid <em>by the rules</em>).</p>
+<p>A quick test of this turned up an acceptable result in that it was able to read
+several of the canSAS test XML files, including those with foreign namespaces.
+And <strong>it was very easy</strong>.
+(Especially with some help from <a class="reference external" href="http://www.xml.com/pub/a/2003/07/02/py-xml.html">http://www.xml.com/pub/a/2003/07/02/py-xml.html</a>)</p>
+<p>Here is a quick example.</p>
+<div class="section" id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+<p>Here is the condensed <em>GnosisUtils</em> installation (without all that output) steps.
+Your system may have <em>gnosis</em> already installed.
+You may also need sysAdmin privileges.
+You may need ...</p>
+<blockquote>
+<div><div class="highlight-guess"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">cd</span> <span class="o">/</span><span class="n">tmp</span>
+<span class="n">wget</span> <span class="n">http:</span><span class="sr">//</span><span class="n">freshmeat</span><span class="o">.</span><span class="n">net</span><span class="sr">/redir/g</span><span class="n">nosisxml</span><span class="sr">/22028/</span><span class="n">url_tgz</span><span class="o">/</span><span class="n">Gnosis_Utils</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+<span class="n">tar</span> <span class="n">xzf</span> <span class="n">Gnosis_Utils</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+<span class="n">cd</span> <span class="n">Gnosis_Utils</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">/</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install_all</span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+<p>Alternatively, it might be simpler to install from the PyPI
+repository (<a class="reference external" href="http://pypi.python.org/pypi/Gnosis%20Utilities">http://pypi.python.org/pypi/Gnosis%20Utilities</a>):</p>
+<blockquote>
+<div><div class="highlight-guess"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">easy_install</span> <span class="o">-</span><span class="n">U</span> <span class="n">gnosis_utils</span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+</div>
+<div class="section" id="quick-test-in-python">
+<span id="index-1"></span><h3>Quick test in Python<a class="headerlink" href="#quick-test-in-python" title="Permalink to this headline">¶</a></h3>
+<div class="sidebar">
+<p class="first sidebar-title">Conclusion: OK</p>
+<p class="last">The <em>GnosisUtils</em> have the promise of being a useful tool to support
+reading this format in Python.  Now, how to write back out... ?
+From the website, it appears the development of GnosisUtils
+has stagnated in 2007 at v1.2.2.</p>
+</div>
+<p>Here is the Python code (without all that output) (called <em>python-test.py</em>):</p>
+<blockquote>
+<div><p class="rubric"><em>python-test.py</em></p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">gnosis.xml.objectify</span>
+
+<span class="n">sasxml</span> <span class="o">=</span> <span class="n">gnosis</span><span class="o">.</span><span class="n">xml</span><span class="o">.</span><span class="n">objectify</span><span class="o">.</span><span class="n">XML_Objectify</span><span class="p">(</span><span class="s">&#39;bimodal-test1.xml&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">make_instance</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">sasxml</span><span class="o">.</span><span class="n">SASentry</span><span class="o">.</span><span class="n">Title</span><span class="o">.</span><span class="n">PCDATA</span>
+<span class="k">print</span> <span class="n">sasxml</span><span class="o">.</span><span class="n">SASentry</span><span class="o">.</span><span class="n">Run</span><span class="o">.</span><span class="n">PCDATA</span>
+<span class="k">print</span> <span class="n">sasxml</span><span class="o">.</span><span class="n">SASentry</span><span class="o">.</span><span class="n">SASinstrument</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">PCDATA</span>
+<span class="n">data0</span> <span class="o">=</span> <span class="n">sasxml</span><span class="o">.</span><span class="n">SASentry</span><span class="o">.</span><span class="n">SASdata</span><span class="o">.</span><span class="n">Idata</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">data0</span><span class="o">.</span><span class="n">Q</span><span class="o">.</span><span class="n">unit</span><span class="p">,</span>  <span class="n">data0</span><span class="o">.</span><span class="n">I</span><span class="o">.</span><span class="n">unit</span>
+<span class="k">print</span> <span class="n">data0</span><span class="o">.</span><span class="n">Q</span><span class="o">.</span><span class="n">PCDATA</span><span class="p">,</span>  <span class="n">data0</span><span class="o">.</span><span class="n">I</span><span class="o">.</span><span class="n">PCDATA</span><span class="p">,</span>  <span class="n">data0</span><span class="o">.</span><span class="n">Idev</span><span class="o">.</span><span class="n">PCDATA</span>
+</pre></div>
+</td></tr></table></div>
+<p class="rubric">Output from <em>python-test.py</em></p>
+<div class="highlight-guess"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span class="p">[</span><span class="n">Pete</span><span class="nv">@ubuntu</span><span class="p">,</span><span class="mi">2441</span><span class="p">,</span><span class="n">cansas1dwg</span><span class="p">]</span><span class="nv">$</span> <span class="err">./</span><span class="nv">python</span><span class="o">-</span><span class="n">test</span><span class="o">.</span><span class="n">py</span>
+<span class="n">SAS</span> <span class="n">bimodal</span> <span class="n">test1</span>
+<span class="mi">1992</span>
+<span class="n">simulated</span> <span class="n">SAS</span> <span class="n">calculation</span>
+<span class="mi">1</span><span class="sr">/A 1/cm</span>
+<span class="mi">0</span><span class="o">.</span><span class="mo">004015713</span><span class="mi">9</span> <span class="mi">3497</span><span class="o">.</span><span class="mi">473</span> <span class="mi">90</span><span class="o">.</span><span class="mi">72816</span>
+</pre></div>
+</td></tr></table></div>
+<p class="rubric">Full session output</p>
+<div class="highlight-guess"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre></div></td><td class="code"><div class="highlight"><pre><span class="p">[</span><span class="n">Pete</span><span class="nv">@ubuntu</span><span class="p">,</span><span class="mi">2429</span><span class="p">,</span><span class="sr">/tmp]$ cd /</span><span class="n">tmp</span>
+<span class="o">/</span><span class="n">tmp</span>
+<span class="p">[</span><span class="n">Pete</span><span class="nv">@ubuntu</span><span class="p">,</span><span class="mi">2430</span><span class="p">,</span><span class="sr">/tmp]$ wget http://freshmeat.net/</span><span class="n">redir</span><span class="sr">/gnosisxml/</span><span class="mi">22028</span><span class="sr">/url_tgz/</span><span class="n">Gnosis_Utils</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+<span class="o">--</span><span class="mi">11</span><span class="p">:</span><span class="mi">43</span><span class="p">:</span><span class="mi">16</span><span class="o">--</span>  <span class="n">http:</span><span class="sr">//</span><span class="n">freshmeat</span><span class="o">.</span><span class="n">net</span><span class="sr">/redir/g</span><span class="n">nosisxml</span><span class="sr">/22028/</span><span class="n">url_tgz</span><span class="o">/</span><span class="n">Gnosis_Utils</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+           <span class="o">=&gt;</span> <span class="sb">`Gnosis_Utils-1.2.2.tar.gz&#39;</span>
+<span class="sb">Resolving freshmeat.net... 66.35.250.168</span>
+<span class="sb">Connecting to freshmeat.net|66.35.250.168|:80... connected.</span>
+<span class="sb">HTTP request sent, awaiting response... 302 Found</span>
+<span class="sb">Location: http://www.gnosis.cx/download/Gnosis_Utils.More/Gnosis_Utils-1.2.2.tar.gz [following]</span>
+<span class="sb">--11:43:16--  http://www.gnosis.cx/download/Gnosis_Utils.More/Gnosis_Utils-1.2.2.tar.gz</span>
+<span class="sb">           =&gt; `</span><span class="n">Gnosis_Utils</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span><span class="s">&#39;</span>
+<span class="s">Resolving www.gnosis.cx... 64.41.64.172</span>
+<span class="s">Connecting to www.gnosis.cx|64.41.64.172|:80... connected.</span>
+<span class="s">HTTP request sent, awaiting response... 200 OK</span>
+<span class="s">Length: 287,989 (281K) [application/x-tar]</span>
+
+<span class="s">100%[==============================================================================&gt;] 287,989       --.--K/s</span>
+
+<span class="s">11:43:16 (2.47 MB/s) - `Gnosis_Utils-1.2.2.tar.gz&#39;</span> <span class="n">saved</span> <span class="p">[</span><span class="mi">287989</span><span class="o">/</span><span class="mi">287989</span><span class="p">]</span>
+
+<span class="p">[</span><span class="n">Pete</span><span class="nv">@ubuntu</span><span class="p">,</span><span class="mi">2431</span><span class="p">,</span><span class="o">/</span><span class="n">tmp</span><span class="p">]</span><span class="nv">$</span> <span class="nv">tar</span> <span class="n">xzf</span> <span class="n">Gnosis_Utils</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+<span class="p">[</span><span class="n">Pete</span><span class="nv">@ubuntu</span><span class="p">,</span><span class="mi">2432</span><span class="p">,</span><span class="sr">/tmp]$ cd Gnosis_Utils-1.2.2/</span>
+<span class="sr">/tmp/</span><span class="n">Gnosis_Utils</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span>
+<span class="p">[</span><span class="n">Pete</span><span class="nv">@ubuntu</span><span class="p">,</span><span class="mi">2433</span><span class="p">,</span><span class="n">Gnosis_Utils</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="p">]</span><span class="nv">$</span> <span class="nv">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install_all</span>
+<span class="p">[</span><span class="n">Pete</span><span class="nv">@ubuntu</span><span class="p">,</span><span class="mi">2434</span><span class="p">,</span><span class="n">Gnosis_Utils</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="p">]</span><span class="nv">$</span> <span class="nv">cd</span> <span class="o">~</span><span class="sr">/workspace/c</span><span class="n">ansas1dwg</span><span class="o">-</span><span class="n">regitte</span>
+<span class="p">[</span><span class="n">Pete</span><span class="nv">@ubuntu</span><span class="p">,</span><span class="mi">2435</span><span class="p">,</span><span class="n">cansas1dwg</span><span class="o">-</span><span class="n">regitte</span><span class="p">]</span><span class="nv">$</span> <span class="nv">python</span>
+<span class="n">Python</span> <span class="mi">2</span><span class="o">.</span><span class="mi">5</span><span class="o">.</span><span class="mi">1</span> <span class="p">(</span><span class="n">r251:54863</span><span class="p">,</span> <span class="n">May</span> <span class="mi">18</span> <span class="mi">2007</span><span class="p">,</span> <span class="mi">16</span><span class="p">:</span><span class="mi">56</span><span class="p">:</span><span class="mi">43</span><span class="p">)</span>
+<span class="p">[</span><span class="n">GCC</span> <span class="mi">3</span><span class="o">.</span><span class="mi">4</span><span class="o">.</span><span class="mi">4</span> <span class="p">(</span><span class="n">cygming</span> <span class="n">special</span><span class="p">,</span> <span class="n">gdc</span> <span class="mi">0</span><span class="o">.</span><span class="mi">12</span><span class="p">,</span> <span class="n">using</span> <span class="n">dmd</span> <span class="mi">0</span><span class="o">.</span><span class="mi">125</span><span class="p">)]</span> <span class="n">on</span> <span class="n">cygwin</span>
+<span class="n">Type</span> <span class="s">&quot;help&quot;</span><span class="p">,</span> <span class="s">&quot;copyright&quot;</span><span class="p">,</span> <span class="s">&quot;credits&quot;</span> <span class="ow">or</span> <span class="s">&quot;license&quot;</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">import</span> <span class="n">gnosis</span><span class="o">.</span><span class="n">xml</span><span class="o">.</span><span class="n">objectify</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sasxml</span> <span class="o">=</span> <span class="n">gnosis</span><span class="o">.</span><span class="n">xml</span><span class="o">.</span><span class="n">objectify</span><span class="o">.</span><span class="n">XML_Objectify</span><span class="p">(</span><span class="s">&#39;bimodal-test1.xml&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">make_instance</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">sasxml</span><span class="o">.</span><span class="n">SASentry</span><span class="o">.</span><span class="n">Title</span><span class="o">.</span><span class="n">PCDATA</span>
+<span class="n">SAS</span> <span class="n">bimodal</span> <span class="n">test1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">sasxml</span><span class="o">.</span><span class="n">SASentry</span><span class="o">.</span><span class="n">Run</span><span class="o">.</span><span class="n">PCDATA</span>
+<span class="mi">1992</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">sasxml</span><span class="o">.</span><span class="n">SASentry</span><span class="o">.</span><span class="n">SASinstrument</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">PCDATA</span>
+<span class="n">simulated</span> <span class="n">SAS</span> <span class="n">calculation</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">data0</span> <span class="o">=</span> <span class="n">sasxml</span><span class="o">.</span><span class="n">SASentry</span><span class="o">.</span><span class="n">SASdata</span><span class="o">.</span><span class="n">Idata</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">data0</span><span class="o">.</span><span class="n">Q</span><span class="o">.</span><span class="n">unit</span>
+<span class="mi">1</span><span class="o">/</span><span class="n">A</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">data0</span><span class="o">.</span><span class="n">I</span><span class="o">.</span><span class="n">unit</span>
+<span class="mi">1</span><span class="o">/</span><span class="n">cm</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">data0</span><span class="o">.</span><span class="n">Q</span><span class="o">.</span><span class="n">PCDATA</span><span class="p">,</span>  <span class="n">data0</span><span class="o">.</span><span class="n">I</span><span class="o">.</span><span class="n">PCDATA</span><span class="p">,</span>  <span class="n">data0</span><span class="o">.</span><span class="n">Idev</span><span class="o">.</span><span class="n">PCDATA</span>
+<span class="mi">0</span><span class="o">.</span><span class="mo">004015713</span><span class="mi">9</span> <span class="mi">3497</span><span class="o">.</span><span class="mi">473</span> <span class="mi">90</span><span class="o">.</span><span class="mi">72816</span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="generateds-py">
+<h2><em>generateDS.py</em><a class="headerlink" href="#generateds-py" title="Permalink to this headline">¶</a></h2>
+<div class="sidebar">
+<p class="first sidebar-title">Conclusion: not ready yet (2008-05-16)</p>
+<p class="last">Either the canSAS standard (by means of the cansas1d.xsd XML Schema)
+is not ready or <em>generateDS.py</em> does not cover the
+XML Schema requirements we have at this time. Either way,
+this is not a viable tool to use now.</p>
+</div>
+<p><em>generateDS.py</em>
+(<a class="reference external" href="http://www.rexx.com/~dkuhlman/">http://www.rexx.com/~dkuhlman/</a>, <a class="reference external" href="http://www.rexx.com/~dkuhlman/generateDS.html">http://www.rexx.com/~dkuhlman/generateDS.html</a>)
+can build a binding (map the structure of the XML file directly into a
+Python data structure) for Python from an XML Schema.
+However, the cansas1d/1.1 XML schema (cansas1d.xsd) does not seem to
+fit the model.It seems, for now, that <em>generateDS-1.12a</em>
+fails on a certain <em>annotate</em> line.</p>
+<div class="highlight-guess"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span class="p">[</span><span class="n">Pete</span><span class="nv">@ubuntu</span><span class="p">,</span><span class="mi">2402</span><span class="p">,</span><span class="n">cansas1dwg</span><span class="p">]</span><span class="nv">$</span> <span class="nv">python</span>  <span class="o">\</span>
+                <span class="o">~</span><span class="sr">/generateDS-1.12a/g</span><span class="n">enerateDS</span><span class="o">.</span><span class="n">py</span>  <span class="o">\</span>
+                <span class="o">-</span><span class="n">p</span> <span class="n">CS1D_</span>  <span class="o">\</span>
+                <span class="o">-</span><span class="n">o</span> <span class="n">cansas1d</span><span class="o">.</span><span class="n">py</span>  <span class="o">\</span>
+                <span class="o">-</span><span class="n">s</span> <span class="n">cansas1dsubs</span><span class="o">.</span><span class="n">py</span>  <span class="o">\</span>
+                <span class="n">cansas1d</span><span class="o">.</span><span class="n">xsd</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="k">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">&quot;/home/Pete/generateDS-1.12a/generateDS.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3997</span><span class="p">,</span> <span class="n">in</span> <span class="o">&amp;</span><span class="ow">lt</span><span class="p">;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">main</span><span class="p">()</span>
+  <span class="n">File</span> <span class="s">&quot;/home/Pete/generateDS-1.12a/generateDS.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3993</span><span class="p">,</span> <span class="n">in</span> <span class="n">main</span>
+    <span class="n">processIncludes</span><span class="p">,</span> <span class="n">superModule</span><span class="o">=</span><span class="n">superModule</span><span class="p">)</span>
+  <span class="n">File</span> <span class="s">&quot;/home/Pete/generateDS-1.12a/generateDS.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3909</span><span class="p">,</span> <span class="n">in</span> <span class="n">parseAndGenerate</span>
+    <span class="n">root</span><span class="o">.</span><span class="n">annotate</span><span class="p">()</span>
+<span class="n">AttributeError:</span> <span class="s">&#39;NoneType&#39;</span> <span class="n">object</span> <span class="n">has</span> <span class="nb">no</span> <span class="n">attribute</span> <span class="s">&#39;annotate&#39;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="other-possibilities">
+<h2>Other possibilities<a class="headerlink" href="#other-possibilities" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://www.devx.com/ibm/Article/20261">http://www.devx.com/ibm/Article/20261</a></li>
+<li><a class="reference external" href="http://mail.python.org/pipermail/xml-sig/2002-April/007559.html">http://mail.python.org/pipermail/xml-sig/2002-April/007559.html</a></li>
+<li><a class="reference external" href="http://pywebsvcs.sourceforge.net/">http://pywebsvcs.sourceforge.net/</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="intensity-problem.html" title="The Intensity Problem"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="binding-php.html" title="PHP"
+             >previous</a> |</li>
+        <li><a href="index.html">canSAS1d 1.1 documentation</a> &raquo;</li>
+          <li><a href="contents.html" >Table of Contents</a> &raquo;</li>
+          <li><a href="bindings.html" >Language Bindings and Software Support</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, canSAS.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

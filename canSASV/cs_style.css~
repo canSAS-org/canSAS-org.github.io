@@ -1,0 +1,144 @@
+.cs_pagelayout {
+	width: 500px;
+	margin-top: 20%;
+	margin-right: auto;
+	margin-left: auto;
+    text-align: center;
+    background-image: url('cansasvlogo.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: black;
+}
+
+.cs_iform{
+}
+
+.cs_pageheader {
+	width: 500px;
+	margin-right: auto;
+	margin-left: auto;
+    text-align: center;
+    background-image: url('cansasvlogo.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: black;
+}
+
+.cs_title {
+       font-size: 35pt;
+       font-style: bold;
+       font-family: Verdana, Arial, sans-serif;
+}
+
+.cs_pagelayout2 {
+	width: 500px;
+	width: 90%;
+	height: 450px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 20px;
+	text-align: justify; 
+	border-top : 2px solid darkgrey;
+	border-bottom : 2px solid darkgrey;
+	padding-top: 10px;
+}
+
+.cs_pagebody {
+	position: relative;
+	float: right;
+	width: 78%;
+	height: 430px;
+	padding-right: 5px;
+	//overflow: auto;
+	overflow-x: hidden;
+	overflow-y:scroll;
+	overflow:auto !important;
+}
+
+.cs_sidebar {
+	position: relative;
+	float: left;
+	width: 20%;
+	height: 430px;
+	border-right: 2px solid darkgrey;
+}
+
+.cs_tagline {
+      font-size: 16pt;
+      font-style: italic;
+}
+
+.cs_footer {
+      width: 90%;
+      margin-left: 20px;
+      padding-top: 10px;
+      border: 0px;
+      text-align: center;
+      text-size: small;
+}
+
+.cs_ifooter {
+	width: 100%;
+	margin-top: 10px;
+	text-align: center;
+}	
+
+.cs_bottom_links {
+	text-align: center;
+}
+
+.cs_blhl {
+	background: black;
+	text-color: white;
+	padding-right:  0.5em;
+	padding-left: 0.5em;
+}
+
+.cs_blb {
+       border-style: none solid none solid;
+       border-width: thin;
+       border-color: darkgrey;
+	padding-right:  0.5em;
+	padding-left: 0.5em;
+}
+
+A:link.blhl, A:visited.blhl, A:active.blhl {
+	color: grey; 
+	text-decoration: none; 
+}
+
+A:link, A:visited, A:active { 
+    color:  grey;
+	text-decoration: none;
+}
+
+IMG {
+	border: none;
+}
+
+.prog_hdr {
+	text-align:	center;
+	background: #aaaaaa;
+}
+
+.footnotes {
+	position: absolute;
+	bottom: 0px;
+	font-size: 8pt;
+}
+
+.topictitle {
+	font-style: strong;
+}
+
+.topicsubtitle {
+	font-style: italic;
+}
+
+dt {
+	
+}
