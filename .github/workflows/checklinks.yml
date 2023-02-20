@@ -6,7 +6,6 @@ on:
   # schedule:
   # #Every Monday at 1p UTC https://crontab.guru/#0_13_*_*_1
   # - cron: "0 13 * * 1"
-j
 
 jobs:
   markdown-link-check:
