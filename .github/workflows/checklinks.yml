@@ -1,0 +1,24 @@
+name: Check Markdown links
+
+on: 
+  workflow_dispatch:
+  push:
+  # schedule:
+  # #Every Monday at 1p UTC https://crontab.guru/#0_13_*_*_1
+  # - cron: "0 13 * * 1"
+j
+
+jobs:
+  markdown-link-check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@main
+    - uses: gaurav-nelson/github-action-markdown-link-check@v1
+      with:
+        # not using a config file for now see eoffhudik.com/tech/2020/10/05/automate-checking-markdown-links-with-github-actions/
+        # for example of json file.
+        # config-file: 'mlc_config.json'
+        # Quiet mode only shows errors in output not successful links too
+        use-quiet-mode: 'yes'
+        # Specify yes to show detailed HTTP status for checked links.
+        use-verbose-mode: 'yes'
